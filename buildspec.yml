@@ -1,0 +1,13 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - apt-get update
+      - apt-get install python3.7
+      - pip install dbt
+      - export DBT_DIR="$HOME/.dbt"
+      - cp "$CODEBUILD_SRC_DIR/profile.yml" "$DBT_DIR"
+  build:
+    commands:
+      - cd "$HOME/dbt_database"
+      - dbt compile
