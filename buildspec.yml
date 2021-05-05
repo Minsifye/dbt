@@ -11,3 +11,4 @@ phases:
     commands:
       - cd "$HOME/dbt_database"
       - dbt compile
+      - dbt run
